@@ -1,20 +1,16 @@
-.nav ul {
+.nav-links ul {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    text-decoration: none;
-}
-
-.nav li:first-child {
+    flex-direction: row;
     padding-left: 0;
 }
 
-ul {
-    padding-left: 0;
-}
-
-li {
+.nav-links li {
     list-style-type: none;
     padding: 10px;
     text-decoration: none;
+}
+@media screen and (min-width: 64rem) {
+    .nav-links ul {
+        flex-direction: column;
+    }
 }

@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import QuestionList from "../queston-list/QuestionList";
+import './Dashboard.css';
 
 class Dashboard extends Component {
   render() {
     return (
-      <h3>Dashboard</h3>
+      <div>
+        <div className='dashboard-lists'>
+          <QuestionList/>
+          <QuestionList/>
+        </div>
+
+      </div>
     )
   }
 }

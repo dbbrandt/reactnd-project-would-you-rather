@@ -107,8 +107,8 @@ body {
 
     .container.layout-section.main {
       min-height: 100px;
-
       grid-area: main;
+
     }
 
     .container.header.layout-section {

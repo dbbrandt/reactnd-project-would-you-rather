@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class AddQuestion extends Component {
+class Prompt extends Component {
   render() {
     return (
       <div>
-        <h3>Add Question</h3>
+        <h4>Prompt</h4>
       </div>
     )
   }
 }
 
-export default AddQuestion;
+export default Prompt;

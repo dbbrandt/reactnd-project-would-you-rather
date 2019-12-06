@@ -1,0 +1,9 @@
+.dashboard-lists {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-lists h3 {
+    padding: 20px;
+}
+

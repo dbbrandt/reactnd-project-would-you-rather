@@ -4,11 +4,3 @@ h3 {
   margin: auto;
   font-size: 1rem;
 }
-
-main h3 {
-  font-size: 2rem;
-}
-
-footer h3 {
-  font-size: 0.25rem;
-}

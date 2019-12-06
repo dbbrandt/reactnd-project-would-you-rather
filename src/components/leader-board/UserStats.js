@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class AddQuestion extends Component {
+class UserStats extends Component {
   render() {
     return (
       <div>
-        <h3>Add Question</h3>
+        <h4>User #</h4>
       </div>
     )
   }
 }
 
-export default AddQuestion;
+export default UserStats;
