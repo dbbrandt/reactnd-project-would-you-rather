@@ -1,7 +1,7 @@
 main h3 {
     font-size: 1.25rem;
 }
-.container.layout-section.main {
+.container-grid.layout-section.main {
     display: flex;
     flex-direction: column;
     align-items: center;

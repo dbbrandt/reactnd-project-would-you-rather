@@ -4,7 +4,7 @@ import './Nav.css'
 class Nav extends Component {
   render() {
     return (
-      <nav className="container layout-section navigation">
+      <nav className="container-grid layout-section navigation">
         <div className='nav-links'>
           <ul>
             <li>Home</li>

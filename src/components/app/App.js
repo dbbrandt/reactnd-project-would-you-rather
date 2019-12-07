@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <Fragment>
         <LoadingBar />
-        <div className="container grid-layout">
+        <div className="container-grid main-layout">
           <Heading />
           <Nav />
           <Main />

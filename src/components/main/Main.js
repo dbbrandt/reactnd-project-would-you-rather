@@ -10,7 +10,7 @@ import './Main.css';
 class Main extends Component {
   render() {
     return (
-      <main className="container layout-section main">
+      <main className="container-grid layout-section main">
         <Login/>
         <Dashboard/>
         <Question/>
