@@ -3,6 +3,7 @@
 /* Text Elements */
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
 }
 
 /* Layout Elements */
@@ -80,7 +81,7 @@ body {
   }
 
   .container-grid.header.layout-section {
-    padding: 5px;
+    padding: 0;
     background-color: #fff;
     grid-area: header;
   }

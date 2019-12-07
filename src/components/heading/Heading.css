@@ -1,0 +1,5 @@
+.loading-bar {
+    background-color: blue;
+    position: absolute;
+    height: 2px;
+}

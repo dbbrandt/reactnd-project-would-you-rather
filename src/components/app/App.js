@@ -1,10 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./App.css";
-import { LoadingBar } from "react-redux-loading";
 import Main from "../main/Main";
 import Nav from "../nav/Nav";
-import Heading from "../heading/Heanding";
+import Heading from "../heading/Heading";
 import Footer from "../footer/Footer";
 import { handleGetInitialData } from "../../actions/shared";
 
@@ -14,18 +13,24 @@ class App extends Component {
   }
 
   render() {
+    const { loading } = this.props;
+    console.log('App loading: ', loading);
     return (
-      <Fragment>
-        <LoadingBar />
-        <div className="container-grid main-layout">
-          <Heading />
-          <Nav />
-          <Main />
-          <Footer />
-        </div>
-      </Fragment>
+      <div className="container-grid main-layout">
+        <Heading />
+        <Nav />
+        <Main loading={loading}/>
+        <Footer />
+      </div>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({ users }) {
+  console.log('App users: ', users)
+  return {
+    loading: users === null
+  };
+}
+
+export default connect(mapStateToProps)(App);
