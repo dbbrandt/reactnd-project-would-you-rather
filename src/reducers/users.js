@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {fetchUsers} from "../actions/users";
 
-export const users = createReducer(null,{
+export const users = createReducer({},{
   [fetchUsers]: (state, action) => action.payload
 });
