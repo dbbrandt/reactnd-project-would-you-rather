@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter, NavLink } from "react-router-dom";
 import './Nav.css'
 
 class Nav extends Component {
+
   render() {
+    const { loginLink } = this.props;
     return (
       <nav className="container-grid layout-section navigation">
         <div className='nav-links'>
           <ul>
-            <li>Home</li>
-            <li>Add Question</li>
-            <li>Leader Board</li>
-            <li>Logout</li>
+            <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
+            <li><NavLink to='/add-question' activeClassName='nav-active'>Add Question</NavLink></li>
+            <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
+            <li>
+              <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>
+                { loginLink }
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
@@ -18,4 +26,6 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default withRouter(connect(({ authedUser }) => ({
+  loginLink: !!authedUser ? 'Logout' : 'Login'
+}))(Nav));

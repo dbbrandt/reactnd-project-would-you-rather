@@ -2,12 +2,8 @@
 h3 {
   display: flex;
   margin: auto;
-  font-size: 1rem;
 }
 
-main h3 {
-  font-size: 1.25rem;
-}
 .container-grid.layout-section.main {
   display: flex;
   flex-direction: column;

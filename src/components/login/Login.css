@@ -1,0 +1,12 @@
+.select-user label {
+    font-size: 24px;
+}
+
+.select-user select {
+    padding: 20px;
+    font-size: 24px;
+}
+
+select:focus {
+    outline: none;
+}

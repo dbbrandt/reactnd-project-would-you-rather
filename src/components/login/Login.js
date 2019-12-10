@@ -1,41 +1,64 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom'
-import {handleAuthenticateUser} from "../../actions/authedUser";
-import {hideLoading, showLoading} from "react-redux-loading";
-import { setLoading } from "../../actions/loading";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import {handleAuthenticateUser, logoutUser} from "../../actions/authedUser";
+import "./Login.css";
 
 class Login extends Component {
   state = {
-    userId: ''
+    userId: ""
   };
 
-  setAuthUser = ( id ) => {
+  componentDidMount() {
+    const { authedUser, logout, dispatch } = this.props;
+    if (!!authedUser) {
+      if (logout) {
+        dispatch(logoutUser());
+        this.setState({ userId: "" });
+      } else {
+        this.setState({ userId: authedUser.id });
+      }
+    }
+  }
+
+  handleChange = event => {
+    const id = event.target.value;
     this.setState({ userId: id });
     const { dispatch, history, users } = this.props;
     const user = users[id];
-    dispatch(showLoading());
-    dispatch(setLoading(true));
-    setTimeout( (users) => {
-      dispatch(handleAuthenticateUser(user));
-      dispatch(hideLoading());
-      history.push('/');
-      dispatch(setLoading(false));
-    }, 2000);
+    dispatch(handleAuthenticateUser(user));
+    history.push("/");
   };
 
   render() {
     const { users } = this.props;
     return (
-        <div>
-          <button onClick={(event) => this.setAuthUser('danielbrandt')}>Login: {Object.keys(users).length}</button>
-        </div>
-    )
+      <div className="select-user">
+        <label>Login:</label>
+        <select
+          className="selectpicker"
+          value={this.state.userId}
+          placeholder="Choose...."
+          onChange={this.handleChange}
+        >
+          <option key="choose" value="" disabled>
+            Choose a user...
+          </option>
+          {Object.keys(users).map(id => (
+            <option key={id} value={id}>
+              {users[id].name}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
   }
 }
 
-const mapStateToProps = ({ users }) => ({
-  users
+const mapStateToProps = ({ users, authedUser }, { logout }) => ({
+  users,
+  authedUser,
+  logout: !!logout
 });
 
 export default withRouter(connect(mapStateToProps)(Login));

@@ -4,13 +4,22 @@
     padding-left: 0;
 }
 
-.nav-links li {
+.nav-links li, a {
     list-style-type: none;
-    padding: 10px;
     text-decoration: none;
+    padding-bottom: 10px;
+    text-align: left;
+    height: 50px;
+    color: grey;
 }
+
 @media screen and (min-width: 64rem) {
     .nav-links ul {
         flex-direction: column;
     }
+}
+
+.nav-active {
+    color: black;
+    font-weight: bold;
 }

@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import "./App.css";
-// import Main from "../main/Main";
 import Nav from "../nav/Nav";
 import Heading from "../heading/Heading";
 import Footer from "../footer/Footer";
@@ -12,7 +11,7 @@ import Login from "../login/Login";
 import Question from "../question/Question";
 import AddQuestion from "../add-question/AddQueston";
 import LeaderBoard from "../leader-board/LeaderBoard";
-import Auth from "../login/Auth";
+// import {handleAuthenticateUser} from "../../actions/authedUser";
 
 class App extends Component {
   componentDidMount() {
@@ -24,21 +23,25 @@ class App extends Component {
     const { loading } = this.props;
     return (
       <div className="container-grid main-layout">
-        <Heading />
-        <Nav />
-        <main className="container-grid layout-section main">
-          {loading ? null : (
-            <Router>
-              <Auth/>
-              <Route exact path="/" component={Dashboard} />
-              <Route path="/login" component={Login} />
-              <Route path="/question" component={Question} />
-              <Route path="/add-question" component={AddQuestion} />
-              <Route path="/leader-board" component={LeaderBoard} />
-            </Router>
-          )}
-        </main>
-        <Footer />
+        <Router>
+          <Heading />
+          <Nav />
+          <main className="container-grid layout-section main">
+            {loading ? null : (
+                <Fragment>
+                  <Route exact path="/" component={Dashboard} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/question" component={Question} />
+                  <Route path="/add-question" component={AddQuestion} />
+                  <Route path="/leader-board" component={LeaderBoard} />
+                  <Route path='/logout' render={() => (
+                    <Login logout={true}/>
+                    )}/>
+                </Fragment>
+            )}
+          </main>
+          <Footer />
+        </Router>
       </div>
     );
   }
