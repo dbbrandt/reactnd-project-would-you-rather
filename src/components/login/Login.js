@@ -27,11 +27,12 @@ class Login extends Component {
     const { dispatch, history, users } = this.props;
     const user = users[id];
     dispatch(handleAuthenticateUser(user));
-    history.push("/");
+    // history.push("/");
   };
 
   render() {
     const { users } = this.props;
+    const currentUser = users[this.state.userId];
     return (
       <div className="select-user">
         <label>Login:</label>
@@ -50,6 +51,9 @@ class Login extends Component {
             </option>
           ))}
         </select>
+        {!!currentUser &&
+        <img alt='avatar' src={currentUser.name}/>
+        }
       </div>
     );
   }
