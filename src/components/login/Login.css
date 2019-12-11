@@ -12,10 +12,6 @@
     flex-direction: column;
 }
 
-.user-image {
-    padding: 25px;
-}
-
 select:focus {
     outline: none;
 }

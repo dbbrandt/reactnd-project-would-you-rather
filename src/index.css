@@ -19,10 +19,10 @@ body {
   display:    -moz-box;
   display: -ms-flexbox;
   display:         flex;
-  -ms-flex-pack: center;
   padding: 10px;
   background-color: #fefafa;
 
+  -ms-flex-pack: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -moz-box-pack: center;
@@ -44,7 +44,7 @@ body {
 
     grid-template-areas: 'header' 'navigation' 'main' 'main' 'footer';
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2 , 70px) auto 120px 30px;
+    grid-template-rows: 80px 50px auto 120px 30px;
     grid-row-gap: 1px;
     grid-column-gap: 1px;
     background-blend-mode: normal;
@@ -73,6 +73,13 @@ body {
   }
 
   .container-grid.main {
+    background-color: #fff;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-box-pack: start;
+    justify-content: start;
+    align-items: flex-start;
     grid-area: main;
   }
 
@@ -81,20 +88,21 @@ body {
   }
 
   .container-grid.header.layout-section {
-    padding: 10px;
-    height: 100%;
     background-color: #fff;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -moz-box-pack: center;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     grid-area: header;
   }
 
   .container-grid.layout-section.navigation {
+    padding-top: 15px;
     background-color: #fff;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
     grid-area: navigation;
   }
 
@@ -127,9 +135,19 @@ body {
     /* Layout Elements */
 
     .container-grid.main-layout {
-      grid-template-areas: '. navigation header header .' '. navigation main main .' '. navigation main main .' '. navigation main main .' '. footer footer footer .';
-      grid-template-columns: 1fr 124px repeat(2 , 512px) 1.00fr;
-      grid-template-rows: 70px 101px auto 420px 30px;
+      grid-template-areas: '. header header header .' '. navigation main main .' '. navigation main main .' '. navigation main main .' '. footer footer footer .';
+      grid-template-columns: 1fr 150px repeat(2 , 512px) 1.00fr;
+      grid-template-rows: 85px 101px auto 420px 30px;
+    }
+
+    .container-grid.layout-section.navigation {
+      padding-left: 15px;
+      -ms-flex-pack: start;
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -moz-box-pack: start;
+      justify-content: start;
+      grid-area: navigation;
     }
   }
 }

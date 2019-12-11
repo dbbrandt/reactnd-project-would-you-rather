@@ -10,19 +10,16 @@ class Nav extends Component {
     const { loginLink } = this.props;
     return (
       <nav className="container-grid layout-section navigation">
-        <div className='nav-links'>
-          <img alt='Would You Rather?' src={headerImage}/>
-          <ul>
-            <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
-            <li><NavLink to='/add-question' activeClassName='nav-active'>Add Question</NavLink></li>
-            <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
-            <li>
-              <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>
-                { loginLink }
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <ul className='nav-links'>
+          <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
+          <li><NavLink to='/add-question' activeClassName='nav-active'>Add Question</NavLink></li>
+          <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
+          <li>
+            <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>
+              { loginLink }
+            </NavLink>
+          </li>
+        </ul>
       </nav>
     )
   }
