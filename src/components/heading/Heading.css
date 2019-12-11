@@ -3,3 +3,11 @@
     position: absolute;
     height: 2px;
 }
+
+header h3 {
+    color: midnightblue;
+}
+
+header img {
+    height: 70px;
+}

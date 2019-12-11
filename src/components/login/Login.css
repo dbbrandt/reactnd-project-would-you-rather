@@ -6,6 +6,15 @@
 .select-user select {
     font-size: 24px;
 }
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user-image {
+    padding: 25px;
+}
 
 select:focus {
     outline: none;

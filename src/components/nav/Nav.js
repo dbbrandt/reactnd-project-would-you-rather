@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from "react-router-dom";
 import './Nav.css'
+import headerImage from "../../assets/would-you-rather.jpeg";
 
 class Nav extends Component {
 
@@ -10,6 +11,7 @@ class Nav extends Component {
     return (
       <nav className="container-grid layout-section navigation">
         <div className='nav-links'>
+          <img alt='Would You Rather?' src={headerImage}/>
           <ul>
             <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
             <li><NavLink to='/add-question' activeClassName='nav-active'>Add Question</NavLink></li>

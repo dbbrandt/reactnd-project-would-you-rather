@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import {handleAuthenticateUser, logoutUser} from "../../actions/authedUser";
 import "./Login.css";
+import {hideLoading, showLoading} from "react-redux-loading";
 
 class Login extends Component {
   state = {
@@ -26,34 +27,43 @@ class Login extends Component {
     this.setState({ userId: id });
     const { dispatch, history, users } = this.props;
     const user = users[id];
-    dispatch(handleAuthenticateUser(user));
-    // history.push("/");
+    dispatch(showLoading());
+    setTimeout(() => {
+        dispatch(handleAuthenticateUser(user));
+        history.push("/");
+        dispatch(hideLoading());
+    },2000);
   };
 
   render() {
     const { users } = this.props;
     const currentUser = users[this.state.userId];
     return (
-      <div className="select-user">
-        <label>Login:</label>
-        <select
-          className="selectpicker"
-          value={this.state.userId}
-          placeholder="Choose...."
-          onChange={this.handleChange}
-        >
-          <option key="choose" value="" disabled>
-            Choose a user...
-          </option>
-          {Object.keys(users).map(id => (
-            <option key={id} value={id}>
-              {users[id].name}
+      <div className="login">
+        <div>
+          {!!currentUser &&
+          <img className='user-image' alt='avatar' src={currentUser.avatarURL}/>
+          }
+
+        </div>
+        <div className="select-user">
+          <label>Login:</label>
+          <select
+            className="selectpicker"
+            value={this.state.userId}
+            placeholder="Choose...."
+            onChange={this.handleChange}
+          >
+            <option key="choose" value="" disabled>
+              Choose a user...
             </option>
-          ))}
-        </select>
-        {!!currentUser &&
-        <img alt='avatar' src={currentUser.name}/>
-        }
+            {Object.keys(users).map(id => (
+              <option key={id} value={id}>
+                {users[id].name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
