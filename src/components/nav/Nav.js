@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from "react-router-dom";
 import './Nav.css'
-import headerImage from "../../assets/would-you-rather.jpeg";
 
 class Nav extends Component {
 

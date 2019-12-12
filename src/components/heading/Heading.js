@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import { connect } from 'react-redux';
-import LoadingBar from "react-redux-loading";
+import LoadingBar from "react-redux-loading-bar";
 import './Heading.css';
 import headerImage from "../../assets/would-you-rather.jpeg";
 

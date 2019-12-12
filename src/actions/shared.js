@@ -1,6 +1,6 @@
 import { fetchUsers } from "./users";
 import { fetchQuestions } from "./questions";
-import { showLoading, hideLoading } from "react-redux-loading";
+import { showLoading, hideLoading } from "react-redux-loading-bar";
 import { getInitialData } from "../api";
 import { setLoading } from "./loading";
 

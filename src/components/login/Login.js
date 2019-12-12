@@ -3,46 +3,49 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import {handleAuthenticateUser, logoutUser} from "../../actions/authedUser";
 import "./Login.css";
-import {hideLoading, showLoading} from "react-redux-loading";
+import {hideLoading, showLoading} from "react-redux-loading-bar";
 
 class Login extends Component {
   state = {
     userId: ""
   };
-
-  componentDidMount() {
-    const { authedUser, logout, dispatch } = this.props;
-    if (!!authedUser) {
-      if (logout) {
-        dispatch(logoutUser());
-        this.setState({ userId: "" });
-      } else {
-        this.setState({ userId: authedUser.id });
-      }
-    }
-  }
+  //
+  // componentDidMount() {
+  //   const { authedUser, logout, dispatch } = this.props;
+  //   if (!!authedUser) {
+  //     if (logout) {
+  //       dispatch(logoutUser());
+  //       this.setState({ userId: "" });
+  //     } else {
+  //       this.setState({ userId: authedUser.id });
+  //     }
+  //   }
+  // }
 
   handleChange = event => {
     const id = event.target.value;
     this.setState({ userId: id });
-    const { dispatch, history, users } = this.props;
+    const { dispatch, history, users, location } = this.props;
     const user = users[id];
+    console.log('Login location: ', location)
+    const destRoute = ['/login','/logout'].includes(location.pathname) ? '/' : location.pathname;
+    console.log('Login Dest Route: ', destRoute)
     dispatch(showLoading());
     setTimeout(() => {
         dispatch(handleAuthenticateUser(user));
-        history.push("/");
+        history.push(destRoute);
         dispatch(hideLoading());
     },2);
   };
 
   render() {
     const { users } = this.props;
-    const currentUser = users[this.state.userId];
+    const selectedUser = users[this.state.userId];
     return (
       <div className="login">
         <div>
-          {!!currentUser &&
-          <img className='user-image' alt='avatar' src={currentUser.avatarURL}/>
+          {!!selectedUser &&
+          <img className='user-image' alt='avatar' src={selectedUser.avatarURL}/>
           }
 
         </div>
