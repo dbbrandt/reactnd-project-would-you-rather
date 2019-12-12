@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Question from "./Question";
+import QuestionDetail from "./QuestionDetail";
 import './QuestionList.css'
 
 class QuestionList extends Component {
@@ -13,7 +13,7 @@ class QuestionList extends Component {
         {questions && (
           <div>
             { questions.map(question => (
-            <Question key={question.id} question={question} />
+            <QuestionDetail key={question.id} question={question} />
             ))}
           </div>
         )}

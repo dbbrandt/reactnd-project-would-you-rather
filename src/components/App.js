@@ -38,7 +38,7 @@ class App extends Component {
                   <Route exact path="/" component={Dashboard} />
                   <Route path="/login" component={Login} />
                   <Route path="/logout" component={Logout} />
-                  <Route path="/question" component={Question} />
+                  <Route path="/question/:id" component={Question} />
                   <Route path="/add-question" component={AddQuestion} />
                   <Route path="/leader-board" component={LeaderBoard} />
                 </Fragment>
