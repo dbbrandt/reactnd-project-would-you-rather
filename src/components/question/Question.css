@@ -6,15 +6,26 @@
     align-items: center;
     padding: 10px;
     background-color: #fff;
+    margin: 10px;
 }
 
 .question-view div {
     padding: 10px;
 }
 
+.question-view div img {
+    height: 190px;
+}
+
+
 .question-view .text {
     font-size: 16px;
     color: darkblue;
+    width: 250px;
+    height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     background-color: #f0f1f3;
 }
 
