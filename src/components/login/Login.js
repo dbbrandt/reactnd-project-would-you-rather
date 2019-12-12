@@ -32,7 +32,7 @@ class Login extends Component {
         dispatch(handleAuthenticateUser(user));
         history.push("/");
         dispatch(hideLoading());
-    },2000);
+    },2);
   };
 
   render() {

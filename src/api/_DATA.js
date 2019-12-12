@@ -21,8 +21,8 @@ let users = {
     },
     questions: ['loxhs1bqm25b708cmbf3g', 'vthrdm985a262al8qx3do'],
   },
-  danielbrandt: {
-    id: 'danielbrandt',
+  johndoe: {
+    id: 'johndoe',
     name: 'Daniel Brandt',
     avatarURL: '/img/danielbrandt.png',
     answers: {
@@ -113,7 +113,7 @@ let questions = {
       text: 'write Swift'
     }
   },
-}
+};
 
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
