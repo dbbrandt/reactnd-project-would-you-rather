@@ -36,11 +36,14 @@ class QuestionAnswer extends Component {
         <div>
           <img alt={author} src={avatarURL} />
         </div>
-        <div className="answer-text">
+        <div>
+          Would you rather...
+        </div>
+        <div className="question-option-text">
           <div>
-            What would your rather {optionOne.text}?
+            {optionOne.text}?
           </div>
-          <div className='input'>
+          <label className='input'>
             <input
               type="radio"
               name="vote"
@@ -48,13 +51,13 @@ class QuestionAnswer extends Component {
               className="vote"
               onChange={this.handleChange}
             />
-          </div>
+          </label>
         </div>
-        <div className="answer-text">
+        <div className="question-option-text">
           <div>
-            What would you rather {optionTwo.text}?
+            {optionTwo.text}?
           </div>
-          <div className='input'>
+          <label className='input'>
             <input
               type="radio"
               name="vote"
@@ -62,7 +65,7 @@ class QuestionAnswer extends Component {
               className="vote"
               onChange={this.handleChange}
             />
-          </div>
+          </label>
         </div>
         <div>
           <button type="submit" disabled={!this.state.option}>Answer</button>

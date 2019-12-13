@@ -39,6 +39,7 @@
     flex-direction: column;
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
+    width: 400px;
     padding: 10px;
     align-items: center;
     background-color: #fff;
@@ -47,6 +48,7 @@
 
 .question-view div {
     padding: 10px;
+    align-items: center;
 }
 
 .question-view .heading {
@@ -59,7 +61,7 @@
 }
 
 
-.question-view .text {
+.question-view .option-text {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 5px;
@@ -84,18 +86,19 @@ button[disabled]{
     color: #666666;
 }
 
-.question-view .answer-text {
+.question-option-text {
     display: flex;
     flex-direction: row;
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 5px;
     padding: 5px;
-    font-size: 16px;
     background-color: #f0f1f3;
     align-self: stretch;
 }
 
-.question-view .answer-text .input {
+.question-option-text .input {
     margin-left: auto;
+    padding: 20px;
 }
+

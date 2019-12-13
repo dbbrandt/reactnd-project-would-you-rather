@@ -17,7 +17,7 @@ class Heading extends Component {
           {!!currentUser &&
             <Fragment>
               <div className='user-name'>
-                {currentUser.ame}
+                {currentUser.name}
               </div>
               <div className='user-image'>
                 <img alt={currentUser.name} src={currentUser.avatarURL}/>

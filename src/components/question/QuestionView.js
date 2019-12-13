@@ -1,56 +1,72 @@
-import React, {Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import './Question.css';
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import "./Question.css";
+import QuestionOption from "./QuestionOption";
 class QuestionView extends Component {
+
   votePct = (num, den) => {
-    return 100*(num/den).toFixed(2)
+    return 100 * (num / den).toFixed(2);
   };
 
-  tallyVotes = (optionOne, optionTwo) => {
-    const totalVotes = [...optionOne.votes, ...optionTwo.votes].length;
-    const oneVotes = optionOne.votes.length;
-    const twoVotes = optionTwo.votes.length;
-    const onePct = this.votePct(oneVotes, totalVotes);
-    const twoPct = this.votePct(twoVotes, totalVotes);
-    return { oneVotes, onePct, twoVotes, twoPct, totalVotes };
+  isMyVote = (option) => {
+    return option.votes.includes(this.props.authedUser);
+  };
+
+  tallyVotes = ( one, two ) => {
+    const totalVotes = one.votes.length + two.votes.length;
+    return {
+      optionOne: {
+        text: one.text,
+        votes: one.votes.length,
+        percent: this.votePct(one.votes.length, totalVotes),
+        totalVotes: totalVotes,
+        myVote: this.isMyVote(one)
+      },
+      optionTwo: {
+        text: two.text,
+        votes: two.votes.length,
+        percent: this.votePct(two.votes.length, totalVotes),
+        totalVotes: totalVotes,
+        myVote: this.isMyVote(two)
+      }
+    }
   };
 
   render() {
-    const { users, questions, id, history } = this.props;
-    const question = questions[id];
+    const { question, author, history } = this.props;
     if (!question) {
-      return <h3>Question not found.</h3>
+      return <h3>Question not found.</h3>;
     }
-    const { author, optionOne, optionTwo } = question;
-    const { name, avatarURL } = users[author];
-    const { oneVotes, onePct, twoVotes, twoPct, totalVotes } = this.tallyVotes(optionOne, optionTwo);
+    const { optionOne, optionTwo } = question;
+    const { name, avatarURL } = author;
+    const voteTally = this.tallyVotes(optionOne,optionTwo);
+
     return (
-      <div className='question-view '>
-        <div className='heading'>Results</div>
-        <div>{name} asks:</div>
-        <div><img alt={author} src={avatarURL}/></div>
-        <div className='text'>
-          <div>Would you rather {optionOne.text}?</div>
-          <div className='votes'>{onePct}%</div>
-          <div className='votes'>{oneVotes} of {totalVotes} Votes</div>
+      <div className="question-view ">
+        <div className="heading">Results</div>
+        <div>{ name } asks:</div>
+        <div>
+          <img alt={ name } src={ avatarURL } />
         </div>
-        <div className='text'>
-          <div>Would you rather {optionTwo.text}?</div>
-          <div className='votes'>{twoPct}%</div>
-          <div className='votes'>{twoVotes} of {totalVotes} Votes</div>
+        <QuestionOption votes={voteTally.optionOne}/>
+        <QuestionOption votes={voteTally.optionTwo}/>
+        <div>
+          <button onClick={() => history.push("/")}>Done</button>
         </div>
-        <div><button onClick={() => history.push('/')}>Done</button></div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = ({ users, questions }, { match }) => ({
-  id: match.params.id,
-  users,
-  questions,
-});
+const mapStateToProps = ({ users, questions, authedUser }, { match }) => {
+  const id = match.params.id;
+  const question = questions[id];
+  const author = users[question.author];
+  return ({
+  authedUser,
+  question,
+  author
+})};
 
 export default withRouter(connect(mapStateToProps)(QuestionView));
