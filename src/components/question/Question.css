@@ -78,6 +78,12 @@
     background-color: lightgray;
 }
 
+.question-view button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    color: #666666;
+}
+
 .question-view .answer-text {
     display: flex;
     flex-direction: row;

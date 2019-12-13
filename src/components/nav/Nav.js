@@ -11,7 +11,7 @@ class Nav extends Component {
       <nav className="container-grid layout-section navigation">
         <ul className='nav-links'>
           <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
-          <li><NavLink to='/add-question' activeClassName='nav-active'>Add Question</NavLink></li>
+          <li><NavLink to='/add' activeClassName='nav-active'>Add Question</NavLink></li>
           <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
           <li>
             <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>

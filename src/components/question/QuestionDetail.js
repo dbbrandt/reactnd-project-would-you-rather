@@ -7,7 +7,7 @@ class QuestionDetail extends Component {
   render() {
     const { id, author, avatarURL, text, answered, history } = this.props;
     const answeredText = answered ? "View" : "Answer";
-    const answerURL = "/question-" + answeredText.toLowerCase() + "/" + id;
+    const answerURL = "/" + answeredText.toLowerCase() + "/" + id;
     return (
       <div className="question-detail">
         <div>{author} asks:</div>
