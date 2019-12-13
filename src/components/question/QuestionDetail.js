@@ -6,6 +6,8 @@ import './Question.css';
 class QuestionDetail extends Component {
   render() {
     const { id, author, avatarURL, text, answered, history  } = this.props;
+    const answeredText = answered ? 'View' : 'Answer'
+    const answerURL = '/question-'+answeredText.toLowerCase()+'/'+id;
     console.log('QuesitonDetail props: ', this.props);
     return (
       <div className='question-detail'>
@@ -13,7 +15,9 @@ class QuestionDetail extends Component {
         <div><img alt={author} src={avatarURL}/></div>
         <div>Would you rather...</div>
         <div className='text'>...{text}...</div>
-        <div><button onClick={() => history.push('/question/'+id)}>{answered ? 'View' : 'Answer'}</button></div>
+        <div>
+          <button onClick={() => history.push(answerURL)}>{answeredText}</button>
+        </div>
       </div>
     )
   }

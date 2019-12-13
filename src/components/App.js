@@ -9,10 +9,11 @@ import { handleGetInitialData } from "./../actions/shared";
 import Dashboard from "./dashboard/Dashboard";
 import Login from "./login/Login";
 import Logout from "./login/Logout";
-import Question from "./question/Question";
+import QuestionView from "./question/QuestionView";
 import AddQuestion from "./add-question/AddQueston";
 import LeaderBoard from "./leader-board/LeaderBoard";
 import { logoutUser } from "../actions/authedUser";
+import QuestionAnswer from "./question/QuestionAnswer";
 
 class App extends Component {
   componentDidMount() {
@@ -38,7 +39,8 @@ class App extends Component {
                   <Route exact path="/" component={Dashboard} />
                   <Route path="/login" component={Login} />
                   <Route path="/logout" component={Logout} />
-                  <Route path="/question/:id" component={Question} />
+                  <Route path="/question-view/:id" component={QuestionView} />
+                  <Route path="/question-answer/:id" component={QuestionAnswer} />
                   <Route path="/add-question" component={AddQuestion} />
                   <Route path="/leader-board" component={LeaderBoard} />
                 </Fragment>

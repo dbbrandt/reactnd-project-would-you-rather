@@ -30,13 +30,17 @@
     background-color: #f0f1f30a;
 }
 
+.question-detail button {
+    background-color: lightgray;
+}
+
 .question-view {
     display: flex;
     flex-direction: column;
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
-    align-items: center;
     padding: 10px;
+    align-items: center;
     background-color: #fff;
     margin: 20px;
 }
@@ -48,9 +52,9 @@
 .question-view .heading {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
-    margin: 1px;
+    margin: 0px;
     width: 100%;
-    background-color: lightskyblue;
+    background-color: #87cefabc;
     text-align: center;
 }
 
@@ -59,6 +63,7 @@
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 5px;
+    padding: 5px;
     font-size: 16px;
     text-align: center;
     background-color: #f0f1f3;
@@ -69,7 +74,22 @@
     color: darkblue;
 }
 
-.question-detail button {
+.question-view button {
     background-color: lightgray;
 }
 
+.question-view .answer-text {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #f0f1f3;
+    align-self: stretch;
+}
+
+.question-view .answer-text .input {
+    margin-left: auto;
+}

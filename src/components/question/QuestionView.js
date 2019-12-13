@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './Question.css';
 
-class Question extends Component {
+class QuestionView extends Component {
   render() {
-    console.log('Question props:', this.props)
-    const { users, questions, id } = this.props;
+    const { users, questions, id, history } = this.props;
     const question = questions[id];
     if (!question) {
       return <h3>Question not found.</h3>
@@ -21,12 +20,15 @@ class Question extends Component {
         <div><img alt={author} src={avatarURL}/></div>
         <div className='text'>
           <div>Would you rather {optionOne.text}?</div>
+          <div className='votes'>{100*optionOne.votes.length/totalVotes}%</div>
           <div className='votes'>{optionOne.votes.length} of {totalVotes} Votes</div>
         </div>
         <div className='text'>
           <div>Would you rather {optionTwo.text}?</div>
+          <div className='votes'>{100*optionTwo.votes.length/totalVotes}%</div>
           <div className='votes'>{optionTwo.votes.length} of {totalVotes} Votes</div>
         </div>
+        <div><button onClick={() => history.push('/')}>Done</button></div>
       </div>
     )
   }
@@ -38,4 +40,4 @@ const mapStateToProps = ({ users, questions }, { match }) => ({
   questions,
 });
 
-export default withRouter(connect(mapStateToProps)(Question));
+export default withRouter(connect(mapStateToProps)(QuestionView));
