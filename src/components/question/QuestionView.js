@@ -4,6 +4,19 @@ import { withRouter } from 'react-router-dom';
 import './Question.css';
 
 class QuestionView extends Component {
+  votePct = (num, den) => {
+    return 100*(num/den).toFixed(2)
+  };
+
+  tallyVotes = (optionOne, optionTwo) => {
+    const totalVotes = [...optionOne.votes, ...optionTwo.votes].length;
+    const oneVotes = optionOne.votes.length;
+    const twoVotes = optionTwo.votes.length;
+    const onePct = this.votePct(oneVotes, totalVotes);
+    const twoPct = this.votePct(twoVotes, totalVotes);
+    return { oneVotes, onePct, twoVotes, twoPct, totalVotes };
+  };
+
   render() {
     const { users, questions, id, history } = this.props;
     const question = questions[id];
@@ -12,7 +25,7 @@ class QuestionView extends Component {
     }
     const { author, optionOne, optionTwo } = question;
     const { name, avatarURL } = users[author];
-    const totalVotes = [...optionOne.votes, ...optionTwo.votes].length;
+    const { oneVotes, onePct, twoVotes, twoPct, totalVotes } = this.tallyVotes(optionOne, optionTwo);
     return (
       <div className='question-view '>
         <div className='heading'>Results</div>
@@ -20,13 +33,13 @@ class QuestionView extends Component {
         <div><img alt={author} src={avatarURL}/></div>
         <div className='text'>
           <div>Would you rather {optionOne.text}?</div>
-          <div className='votes'>{100*optionOne.votes.length/totalVotes}%</div>
-          <div className='votes'>{optionOne.votes.length} of {totalVotes} Votes</div>
+          <div className='votes'>{onePct}%</div>
+          <div className='votes'>{oneVotes} of {totalVotes} Votes</div>
         </div>
         <div className='text'>
           <div>Would you rather {optionTwo.text}?</div>
-          <div className='votes'>{100*optionTwo.votes.length/totalVotes}%</div>
-          <div className='votes'>{optionTwo.votes.length} of {totalVotes} Votes</div>
+          <div className='votes'>{twoPct}%</div>
+          <div className='votes'>{twoVotes} of {totalVotes} Votes</div>
         </div>
         <div><button onClick={() => history.push('/')}>Done</button></div>
       </div>

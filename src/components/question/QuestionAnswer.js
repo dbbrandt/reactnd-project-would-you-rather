@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./Question.css";
+import { handleSaveQuestionAnswer } from "../../actions/shared";
 
 class QuestionAnswer extends Component {
   state = {
@@ -10,19 +11,25 @@ class QuestionAnswer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // Add question.
+    const { id, authedUser, dispatch } = this.props;
+    console.log('QuestionAnswer handleSubmit props: ', this.props);
+    dispatch(handleSaveQuestionAnswer(authedUser, id, this.state.option));
     this.props.history.push('/');
   };
 
+  handleChange = (event) => {
+    this.setState({option: event.target.value})
+  };
+
+
   render() {
-    const { users, questions, id, history } = this.props;
+    const { users, questions, id } = this.props;
     const question = questions[id];
     if (!question) {
       return <h3>Question not found.</h3>;
     }
     const { author, optionOne, optionTwo } = question;
     const { name, avatarURL } = users[author];
-    const totalVotes = [...optionOne.votes, ...optionTwo.votes].length;
     return (
       <form className="question-view" onSubmit={this.handleSubmit}>
         <div>{name} asks:</div>
@@ -37,8 +44,9 @@ class QuestionAnswer extends Component {
             <input
               type="radio"
               name="vote"
-              value="option1"
+              value="optionOne"
               className="vote"
+              onChange={this.handleChange}
             />
           </div>
         </div>
@@ -50,8 +58,9 @@ class QuestionAnswer extends Component {
             <input
               type="radio"
               name="vote"
-              value="option2"
+              value="optionTwo"
               className="vote"
+              onChange={this.handleChange}
             />
           </div>
         </div>
@@ -63,10 +72,11 @@ class QuestionAnswer extends Component {
   }
 }
 
-const mapStateToProps = ({ users, questions }, { match }) => ({
+const mapStateToProps = ({ users, questions, authedUser }, { match }) => ({
   id: match.params.id,
   users,
-  questions
+  questions,
+  authedUser
 });
 
 export default withRouter(connect(mapStateToProps)(QuestionAnswer));

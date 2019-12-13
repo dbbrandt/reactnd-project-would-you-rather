@@ -6,6 +6,7 @@
     align-items: center;
     margin: 5px;
     background-color: lightskyblue;
+    min-width: 300px;
 }
 
 .question-list {

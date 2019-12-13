@@ -6,7 +6,7 @@ import headerImage from "../../assets/would-you-rather.jpeg";
 
 class Heading extends Component {
   render() {
-    const { authedUser } = this.props;
+    const { currentUser } = this.props;
     return (
       <Fragment>
         <LoadingBar className='loading-bar'/>
@@ -14,13 +14,13 @@ class Heading extends Component {
           <div>
             <img className='logo' alt='Would You Rather?' src={headerImage}/>
           </div>
-          {!!authedUser &&
+          {!!currentUser &&
             <Fragment>
               <div className='user-name'>
-                {authedUser.name}
+                {currentUser.ame}
               </div>
               <div className='user-image'>
-                <img alt={authedUser.name} src={authedUser.avatarURL}/>
+                <img alt={currentUser.name} src={currentUser.avatarURL}/>
               </div>
             </Fragment>
           }
@@ -29,5 +29,8 @@ class Heading extends Component {
     )
   }
 }
+const mapStateToProps = ({ users, authedUser}) => ({
+  currentUser: !!authedUser ? users[authedUser] : null
+});
 
-export default connect(({ authedUser }) => ({ authedUser }))(Heading);
+export default connect(mapStateToProps)(Heading);

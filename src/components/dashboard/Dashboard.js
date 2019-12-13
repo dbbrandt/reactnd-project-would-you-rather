@@ -17,12 +17,13 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = ({ questions, authedUser }) => {
+const mapStateToProps = ({ questions, users, authedUser }) => {
   const qArray = Object.values(questions);
+  const currentUser = users[authedUser];
   const answered = [];
   const unAnswered = [];
   qArray.forEach((question) => {
-    Object.keys(authedUser.answers).includes(question.id) ? answered.push(question) : unAnswered.push(question);
+    Object.keys(currentUser.answers).includes(question.id) ? answered.push(question) : unAnswered.push(question);
   });
   return ({
     answered,

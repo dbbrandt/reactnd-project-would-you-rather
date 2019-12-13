@@ -1,7 +1,7 @@
 import { fetchUsers } from "./users";
-import { fetchQuestions } from "./questions";
+import { fetchQuestions, saveQuestionAnswer } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { getInitialData } from "../api";
+import { getInitialData, saveAnswer } from "../api";
 import { setLoading } from "./loading";
 
 export const handleGetInitialData = () => {
@@ -20,4 +20,17 @@ export const handleGetInitialData = () => {
         alert('Error loading data. Please try again.' + exception);
       });
   };
+};
+
+export const handleSaveQuestionAnswer = (authedUser, id, answer) => {
+  return dispatch => {
+    saveAnswer(authedUser, id, answer)
+      .then(() => {
+        dispatch(saveQuestionAnswer({authedUser, id, answer}));
+      })
+      .catch(exception => {
+        console.log('HandleQuestionAnswer exception: ' + exception);
+        alert('Error saving data. Please try again.' + exception);
+      });
+  }
 };
