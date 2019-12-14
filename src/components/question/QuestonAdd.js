@@ -1,13 +1,72 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import "./Question.css";
+import { handleAddQuestion } from "../../actions/questions";
 
 class QuestionAdd extends Component {
+  state = {
+    optionOneText: '',
+    optionTwoText: ''
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { authedUser, dispatch } = this.props;
+    const { optionOneText, optionTwoText } = this.state;
+    dispatch(handleAddQuestion(optionOneText, optionTwoText, authedUser));
+    this.setState({
+      optionOneText: '',
+      optionTwoText: ''
+    });
+    this.props.history.push('/');
+  };
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
   render() {
+    const { optionOneText, optionTwoText } = this.state;
+    const { name, avatarURL } = this.props.currentUser;
     return (
-      <div>
-        <h3>Add Question</h3>
-      </div>
-    )
+      <form className="question-view" onSubmit={this.handleSubmit}>
+        <div className='heading'>
+          Create a New Question!
+        </div>
+        <div>
+          <img alt={name} src={avatarURL} />
+        </div>
+        <div>
+          Would you rather...
+        </div>
+        <input
+          className="question-option-text"
+          type="textarea"
+          name="optionOneText"
+          placeholder='Option one....'
+          value={optionOneText}
+          onChange={this.handleChange}
+        />
+        <input
+          className="question-option-text"
+          type="textarea"
+          name="optionTwoText"
+          placeholder='Option two....'
+          value={optionTwoText}
+          onChange={this.handleChange}
+        />
+        <div>
+          <button type="submit" disabled={!this.state.optionOneText || !this.state.optionTwoText }>Answer</button>
+        </div>
+      </form>
+    );
   }
 }
 
-export default QuestionAdd;
+const mapStateToProps = ({ users, authedUser }) => ({
+    authedUser,
+    currentUser: users[authedUser]
+});
+
+export default withRouter(connect(mapStateToProps)(QuestionAdd));

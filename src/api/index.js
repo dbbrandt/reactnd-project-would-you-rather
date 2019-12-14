@@ -15,8 +15,8 @@ export function getInitialData () {
   }))
 }
 
-export function saveQuestion (question) {
-  return _saveQuestion(question)
+export function saveQuestion (optionOneText, optionTwoText, author) {
+  return _saveQuestion({ optionOneText, optionTwoText, author })
 }
 
 export function saveAnswer (authedUser, qid, answer) {

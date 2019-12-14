@@ -12,7 +12,6 @@ class QuestionAnswer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { id, authedUser, dispatch } = this.props;
-    console.log('QuestionAnswer handleSubmit props: ', this.props);
     dispatch(handleSaveQuestionAnswer(authedUser, id, this.state.option));
     this.props.history.push('/');
   };
