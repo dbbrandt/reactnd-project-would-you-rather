@@ -48,6 +48,7 @@ class QuestionAdd extends Component {
           value={optionOneText}
           onChange={this.handleChange}
         />
+        <div className='question-or'>OR</div>
         <input
           className="question-option-text"
           type="textarea"
@@ -57,7 +58,7 @@ class QuestionAdd extends Component {
           onChange={this.handleChange}
         />
         <div>
-          <button type="submit" disabled={!this.state.optionOneText || !this.state.optionTwoText }>Answer</button>
+          <button type="submit" disabled={!this.state.optionOneText || !this.state.optionTwoText }>Save</button>
         </div>
       </form>
     );

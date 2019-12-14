@@ -52,6 +52,7 @@ class QuestionAnswer extends Component {
             />
           </label>
         </div>
+        <div className='question-or'>OR</div>
         <div className="question-option-text">
           <div>
             {optionTwo.text}?
