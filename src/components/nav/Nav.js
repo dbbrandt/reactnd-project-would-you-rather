@@ -9,19 +9,23 @@ class Nav extends Component {
     const { loginLink } = this.props;
     return (
       <nav className="container-grid layout-section navigation">
-        <ul className='nav-links'>
-          <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
-          <li><NavLink to='/add' activeClassName='nav-active'>Add Question</NavLink></li>
-          <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
-          <li>
-            <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>
-              { loginLink }
-            </NavLink>
-          </li>
-          <li className='instructions'>
+        <div  className='nav-bar'>
+          <div>
+            <ul className='nav-links'>
+              <li><NavLink exact to='/' activeClassName='nav-active'>Home</NavLink></li>
+              <li><NavLink to='/add' activeClassName='nav-active'>Add Question</NavLink></li>
+              <li><NavLink to='/leader-board' activeClassName='nav-active'>Leader Board</NavLink></li>
+              <li>
+                <NavLink to={'/' + loginLink.toLowerCase()} activeClassName='nav-active'>
+                  { loginLink }
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className='instructions'>
             Get points by answering question and adding new ones!
-          </li>
-        </ul>
+          </div>
+        </div>
       </nav>
     )
   }
