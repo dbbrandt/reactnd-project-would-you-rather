@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import QuestionDetail from "./QuestionDetail";
-import './QuestionList.css'
+import './Question.css'
 
 class QuestionList extends Component {
   render() {
     const { heading, questions } = this.props;
     return (
-      <div className='question-section'>
+      <div className='question-section box'>
         <div className='heading'>
           <h3>{heading}</h3>
         </div>

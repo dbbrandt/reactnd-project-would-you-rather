@@ -5,7 +5,7 @@
     border-radius: 5px;
     padding: 10px;
     align-items: center;
-    background-color: #fff;
+    background-color: white;
     margin: 20px;
 }
 
@@ -18,19 +18,18 @@
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 0px;
-    width: 100%;
+    width: 95%;
     background-color: #87cefabc;
     text-align: center;
 }
 
 .leader-board-slot {
-    border: 2px solid rgb(96, 139, 168);
+    border: 1px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 0;
     display: flex;
     flex-direction: row;
     text-align: center;
-    width: 100%;
 }
 
 .user-stats-user {
@@ -38,6 +37,7 @@
     border-radius: 5px;
     margin: 0;
     min-width: 250px;
+    background-color: white;
 }
 
 .user-stats-score {
@@ -60,6 +60,7 @@
 .user-stats-score .total {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
+    margin-bottom: 20px;
     width: 100%;
     background-color: white;
 }

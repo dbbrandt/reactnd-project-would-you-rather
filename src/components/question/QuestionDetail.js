@@ -10,13 +10,13 @@ class QuestionDetail extends Component {
     const answerURL = "/" + answeredText.toLowerCase() + "/" + id;
     return (
       <div className="question-detail">
-        <div>{author} asks:</div>
+        <div className='heading'>{author} asks:</div>
         <div>
           <img alt={author} src={avatarURL} />
         </div>
-        <div>Would you rather...</div>
+        <div className='prompt'>Would you rather...</div>
         <div className="text">...{text}...</div>
-        <div>
+        <div className='btn'>
           <button onClick={() => history.push(answerURL)}>
             {answeredText}
           </button>

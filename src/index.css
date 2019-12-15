@@ -7,6 +7,13 @@ body {
   margin: 0;
 }
 
+button {
+  font-size: 24px;
+  border-style: solid;
+  border-width: 3px;
+  background-color: #f0f1f3;
+}
+
 /* Layout Elements */
 
 .container-grid.main-layout {

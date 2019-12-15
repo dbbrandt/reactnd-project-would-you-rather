@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "./LeaderBoard.css";
 
 class UserStats extends Component {
   render() {
-    const { user } = this.props;
+    const { user, rank } = this.props;
     const { name, avatarURL, answerCount, questionCount, score } = user;
     return (
       <div className="leader-board-slot">
         <div className="user-stats-user">
-          <div>{name}</div>
+          <div>{rank}. {name}</div>
           <div>
             <img alt={name} src={avatarURL} />
           </div>
@@ -26,8 +25,4 @@ class UserStats extends Component {
   }
 }
 
-const mapStateToProps = ({ authedUser }, { user }) => ({
-  user
-});
-
-export default connect(mapStateToProps)(UserStats);
+export default UserStats;

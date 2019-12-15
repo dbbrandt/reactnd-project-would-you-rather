@@ -30,7 +30,7 @@ class QuestionAdd extends Component {
     const { optionOneText, optionTwoText } = this.state;
     const { name, avatarURL } = this.props.currentUser;
     return (
-      <form className="question-view" onSubmit={this.handleSubmit}>
+      <form className="question-view box" onSubmit={this.handleSubmit}>
         <div className='heading'>
           Create a New Question!
         </div>

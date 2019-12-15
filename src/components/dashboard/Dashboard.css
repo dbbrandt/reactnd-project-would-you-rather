@@ -1,12 +1,10 @@
 .dashboard-lists {
     display: flex;
     flex-direction: row;
-    border: 2px ridge lightgray;
-    border-radius: 5px;
-    background-color: #3d555d1a;
+    background-color: white;
 }
 
 .dashboard-lists h3 {
-    padding: 20px;
+    padding: 10px;
 }
 

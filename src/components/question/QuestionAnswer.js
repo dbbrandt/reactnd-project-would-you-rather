@@ -30,7 +30,7 @@ class QuestionAnswer extends Component {
     const { author, optionOne, optionTwo } = question;
     const { name, avatarURL } = users[author];
     return (
-      <form className="question-view" onSubmit={this.handleSubmit}>
+      <form className="question-view box" onSubmit={this.handleSubmit}>
         <div>{name} asks:</div>
         <div>
           <img alt={author} src={avatarURL} />

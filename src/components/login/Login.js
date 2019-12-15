@@ -11,19 +11,21 @@ class Login extends Component {
   };
 
   handleChange = event => {
-    const id = event.target.value;
-    this.setState({ userId: id });
-    const { dispatch, history, users, location } = this.props;
-    const user = users[id];
-    const destRoute = ["/login", "/logout"].includes(location.pathname)
-      ? "/"
-      : location.pathname;
+    this.setState({ userId:  event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { users, dispatch, history, location } = this.props;
+    const user = users[this.state.userId];
+    const destRoute = "/login" ? "/" : location.pathname;
     dispatch(showLoading());
     setTimeout(() => {
       dispatch(handleAuthenticateUser(user.id));
       history.push(destRoute);
       dispatch(hideLoading());
     }, 2);
+
   };
 
   render() {
@@ -31,7 +33,7 @@ class Login extends Component {
     const selectedUser = users[this.state.userId];
     return (
       <div className="login">
-        <div>
+        <div className='avatar'>
           {!!selectedUser && (
             <img
               className="user-image"
@@ -40,10 +42,9 @@ class Login extends Component {
             />
           )}
         </div>
-        <div className="select-user">
-          <label>Login:</label>
+        <form className="select-user" onSubmit={this.handleSubmit}>
+          <label>User:</label>
           <select
-            className="selectpicker"
             value={this.state.userId}
             placeholder="Choose...."
             onChange={this.handleChange}
@@ -57,7 +58,10 @@ class Login extends Component {
               </option>
             ))}
           </select>
-        </div>
+          <div className='btn'>
+            <button type='submit' disabled={!this.state.userId}>Login</button>
+          </div>
+        </form>
       </div>
     );
   }

@@ -18,6 +18,9 @@ class Nav extends Component {
               { loginLink }
             </NavLink>
           </li>
+          <li className='instructions'>
+            Get points by answering question and adding new ones!
+          </li>
         </ul>
       </nav>
     )

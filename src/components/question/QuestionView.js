@@ -43,13 +43,19 @@ class QuestionView extends Component {
     const voteTally = this.tallyVotes(optionOne,optionTwo);
 
     return (
-      <div className="question-view ">
+      <div className="question-view box">
         <div className="heading">Results</div>
         <div>{ name } asks:</div>
-        <div>
+        <div className='author'>
           <img alt={ name } src={ avatarURL } />
         </div>
+        <div className='prompt'>
+          Would you rather...
+        </div>
         <QuestionOption votes={voteTally.optionOne}/>
+        <div className='question-or'>
+          OR
+        </div>
         <QuestionOption votes={voteTally.optionTwo}/>
         <div>
           <button onClick={() => history.push("/")}>Done</button>

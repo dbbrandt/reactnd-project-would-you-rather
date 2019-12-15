@@ -1,3 +1,17 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login .avatar {
+    height: 250px;
+}
+.login img {
+    margin: 20px;
+    height: 200px;
+}
+
 .select-user label {
     font-size: 24px;
     padding: 20px;
@@ -6,13 +20,8 @@
 .select-user select {
     font-size: 24px;
 }
-.login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
-}
-
-select:focus {
-    outline: none;
+.select-user .btn {
+   text-align: center;
+    margin-top: 20px;
 }
