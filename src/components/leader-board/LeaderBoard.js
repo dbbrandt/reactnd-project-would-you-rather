@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import UserStats from "./UserStats";
+import './LeaderBoard.css';
 
 class LeaderBoard extends Component {
   render() {
+    const { leaders } = this.props;
     return (
-      <div>
-        <h3>Leader Board</h3>
-        <ul>
-          <li><UserStats/></li>
-          <li><UserStats/></li>
-        </ul>
+      <div className='leader-board'>
+        <div className='heading'>Leader Board</div>
+        {leaders.map( (user) => (
+            <UserStats key={user.id} user={user}/>
+        ))}
       </div>
     )
   }
 }
 
-export default LeaderBoard;
+const mapStateToProps = ({ users }) => {
+  let leaders = Object.values(users).map(user => {
+    const {id, name, avatarURL, questions, answers} = user;
+    return ({
+      id,
+      name,
+      avatarURL,
+      questionCount: questions.length,
+      answerCount: Object.keys(answers).length,
+      score: questions.length + Object.keys(answers).length
+    })
+  });
+  return ({
+    leaders: leaders.sort((a,b) => b.score - a.score)
+  });
+};
+
+export default connect(mapStateToProps)(LeaderBoard);
+

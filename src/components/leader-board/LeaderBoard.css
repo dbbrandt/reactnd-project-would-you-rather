@@ -1,0 +1,65 @@
+.leader-board {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    padding: 10px;
+    align-items: center;
+    background-color: #fff;
+    margin: 20px;
+}
+
+.leader-board div {
+    padding: 10px;
+    margin: 5px;
+}
+
+.leader-board .heading {
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    margin: 0px;
+    width: 100%;
+    background-color: #87cefabc;
+    text-align: center;
+}
+
+.leader-board-slot {
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+}
+
+.user-stats-user {
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    margin: 0;
+    min-width: 250px;
+}
+
+.user-stats-score {
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    margin: 0;
+    background-color: #87cefabc;
+    width: 250px;
+}
+
+.user-stats-score div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
+
+.user-stats-score .total {
+    border: 2px solid rgb(96, 139, 168);
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+}
