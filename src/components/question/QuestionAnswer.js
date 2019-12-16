@@ -67,7 +67,7 @@ class QuestionAnswer extends Component {
             />
           </label>
         </div>
-        <div>
+        <div className='btn'>
           <button type="submit" disabled={!this.state.option}>Answer</button>
         </div>
       </form>

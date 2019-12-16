@@ -23,8 +23,8 @@ let users = {
   },
   johndoe: {
     id: 'johndoe',
-    name: 'Daniel Brandt',
-    avatarURL: '/img/danielbrandt.png',
+    name: 'June Dawes',
+    avatarURL: '/img/woman3-avr.png',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

@@ -57,7 +57,7 @@ class QuestionView extends Component {
           OR
         </div>
         <QuestionOption votes={voteTally.optionTwo}/>
-        <div>
+        <div className='btn'>
           <button onClick={() => history.push("/")}>Done</button>
         </div>
       </div>
@@ -68,7 +68,7 @@ class QuestionView extends Component {
 const mapStateToProps = ({ users, questions, authedUser }, { match }) => {
   const id = match.params.id;
   const question = questions[id];
-  const author = users[question.author];
+  const author = !!question ? users[question.author] : null;
   return ({
   authedUser,
   question,

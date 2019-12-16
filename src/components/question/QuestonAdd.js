@@ -40,18 +40,20 @@ class QuestionAdd extends Component {
         <div>
           Would you rather...
         </div>
-        <input
+        <textarea
+          maxLength={80}
+          rows={4}
           className="question-option-text"
-          type="textarea"
           name="optionOneText"
           placeholder='Option one....'
           value={optionOneText}
           onChange={this.handleChange}
         />
         <div className='question-or'>OR</div>
-        <input
+        <textarea
+          maxLength={80}
+          rows={4}
           className="question-option-text"
-          type="textarea"
           name="optionTwoText"
           placeholder='Option two....'
           value={optionTwoText}

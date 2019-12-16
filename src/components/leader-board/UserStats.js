@@ -7,13 +7,13 @@ class UserStats extends Component {
     const { name, avatarURL, answerCount, questionCount, score } = user;
     return (
       <div className="leader-board-slot">
-        <div className="user-stats-user">
+        <div className="user-stats">
           <div>{rank}. {name}</div>
-          <div>
+          <div className='avatar'>
             <img alt={name} src={avatarURL} />
           </div>
         </div>
-        <div className="user-stats-score">
+        <div className="user-score">
           <div>
             <div>Answers: {questionCount}</div>
             <div>Questions: {answerCount}</div>

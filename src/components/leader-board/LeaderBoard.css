@@ -4,9 +4,8 @@
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     padding: 10px;
-    align-items: center;
+    align-items: stretch;
     background-color: white;
-    margin: 20px;
 }
 
 .leader-board div {
@@ -18,7 +17,6 @@
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 0px;
-    width: 95%;
     background-color: #87cefabc;
     text-align: center;
 }
@@ -32,23 +30,27 @@
     text-align: center;
 }
 
-.user-stats-user {
+.user-stats {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 0;
-    min-width: 250px;
     background-color: white;
+    width: 140px;
 }
 
-.user-stats-score {
+.user-stats img {
+    width: 70px;
+}
+
+
+.user-score {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin: 0;
     background-color: #87cefabc;
-    /*width: 250px;*/
 }
 
-.user-stats-score div {
+.user-score div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +59,7 @@
     height: 100%;
 }
 
-.user-stats-score .total {
+.user-score .total {
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     margin-bottom: 20px;
