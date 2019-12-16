@@ -5,14 +5,15 @@ import "./Question.css";
 
 class QuestionDetail extends Component {
   render() {
-    const { id, author, avatarURL, text, answered, history } = this.props;
+    const { id, author, text, answered, history, authedUser } = this.props;
     const answeredText = answered ? "View" : "Answer";
     const answerURL = "/" + answeredText.toLowerCase() + "/" + id;
+    const prompt = (author.id === authedUser) ? 'You asked:' : author.name + ' asks:';
     return (
       <div className="question-detail">
-        <div className='heading'>{author} asks:</div>
+        <div className='heading'>{prompt}</div>
         <div>
-          <img alt={author} src={avatarURL} />
+          <img alt={author.name} src={author.avatarURL} />
         </div>
         <div className='prompt'>Would you rather...</div>
         <div className="text">...{text}...</div>
@@ -29,13 +30,13 @@ class QuestionDetail extends Component {
 const mapStateToProps = ({ users, authedUser }, { question }) => {
   const { id, author, optionOne, optionTwo } = question;
   const votes = [...optionOne.votes, ...optionTwo.votes];
-  const { name, avatarURL } = users[author];
+  const user = users[author];
   return {
     id,
-    author: name,
-    avatarURL,
+    author: user,
     text: optionOne.text,
-    answered: votes.includes(authedUser)
+    answered: votes.includes(authedUser),
+    authedUser
   };
 };
 

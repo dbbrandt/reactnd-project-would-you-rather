@@ -34,18 +34,19 @@ class QuestionView extends Component {
   };
 
   render() {
-    const { question, author, history } = this.props;
+    const { authedUser, question, author, history } = this.props;
     if (!question) {
       return <h3>Question not found.</h3>;
     }
     const { optionOne, optionTwo } = question;
     const { name, avatarURL } = author;
+    const prompt = (author.id === authedUser) ? 'You asked:' : name + ' asks:';
     const voteTally = this.tallyVotes(optionOne,optionTwo);
 
     return (
       <div className="question-view box">
         <div className="heading">Results</div>
-        <div>{ name } asks:</div>
+        <div>{prompt}</div>
         <div className='author'>
           <img alt={ name } src={ avatarURL } />
         </div>

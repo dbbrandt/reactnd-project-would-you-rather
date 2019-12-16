@@ -18,8 +18,8 @@ class Heading extends Component {
           {!!currentUser && (
             <Fragment>
               <div className="user-name">
-                <div>{currentUser.name}</div>
-                <div>has {currentUser.score} points!</div>
+                <div>Hi {currentUser.name},</div>
+                <div>you have {currentUser.score} points!</div>
               </div>
 
               <div className="user-image">
