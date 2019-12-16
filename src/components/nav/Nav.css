@@ -1,24 +1,31 @@
-nav .nav-links{
-    display: flex;
-    flex-direction: row;
+.nav-bar {
+    margin: 15px;
 }
 
-nav a:hover, a:focus {
+.nav-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a:hover, a:focus {
     text-decoration: none;
 }
 
-nav ul {
+.nav-links ul {
     list-style-type: none;
+    padding-inline-start: 0;
 }
 
-nav li {
+.nav-links li {
     padding-top: 0;
-    padding-left: 20px;
+    padding-left: 5px;
     height: 50px;
+    font-size: 14px;
 }
 
-
-nav a {
+.nav-links a {
     text-decoration: none;
     color: grey;
 }
@@ -29,19 +36,28 @@ nav a {
 }
 
 @media screen and (min-width: 64rem) {
-    nav .nav-links{
-        padding-left: 0;
-        padding-top: 0;
-        flex-direction: column;
+    .nav-bar {
+        margin-left: 2px;
+        margin-right: 0;
     }
 
-    nav li {
+   .nav-links{
+        padding-left: 0;
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+    }
+
+   .nav-links div {
         padding-top: 20px;
         padding-left: 0;
+        font-size: 20px;
     }
 }
 
-nav .instructions {
-    font-size: 12px;
-    padding-right: 10px;
+.instructions {
+    font-size: 16px;
+    margin-top: 40px;
+    color: #666666;
 }

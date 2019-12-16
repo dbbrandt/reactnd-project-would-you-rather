@@ -8,9 +8,9 @@ class Dashboard extends Component {
     const { answered, unAnswered } = this.props;
     return (
       <div className='dashboard-lists'>
-        <div className="dashboard-lists">
-          <QuestionList questions={answered} heading='Answered' />
+        <div className="dashboard-list">
           <QuestionList questions={unAnswered} heading='Un-Answered' />
+          <QuestionList questions={answered} heading='Answered' />
         </div>
       </div>
     );

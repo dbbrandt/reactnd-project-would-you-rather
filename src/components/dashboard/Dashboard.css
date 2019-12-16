@@ -1,6 +1,6 @@
-.dashboard-lists {
+.dashboard-list {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: white;
 }
 
@@ -8,3 +8,10 @@
     padding: 10px;
 }
 
+@media screen and (min-width: 64rem) {
+    .dashboard-list {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+    }
+}

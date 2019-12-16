@@ -3,12 +3,12 @@
 /* Text Elements */
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   margin: 0;
 }
 
 button {
-  font-size: 24px;
+  font-size: 16px;
   border-style: solid;
   border-width: 3px;
   background-color: #f0f1f3;
@@ -45,7 +45,6 @@ button {
     background-image: none;
     background-attachment: scroll;
     background-position: left top;
-    background-clip: border-box;
     background-origin: padding-box;
     background-size: 0 0;
     background-repeat: no-repeat;
@@ -76,7 +75,6 @@ button {
   }
 
   .container-grid.navigation {
-    padding: 0;
     grid-area: navigation;
   }
 
@@ -105,11 +103,6 @@ button {
 
   .container-grid.layout-section.navigation {
     background-color: #fff;
-    -ms-flex-pack: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -moz-box-pack: center;
-    justify-content: center;
     grid-area: navigation;
   }
 
@@ -153,11 +146,6 @@ button {
 
     .container-grid.layout-section.navigation {
       padding-left: 15px;
-      -ms-flex-pack: start;
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-      -moz-box-pack: start;
-      justify-content: start;
       grid-area: navigation;
     }
 
