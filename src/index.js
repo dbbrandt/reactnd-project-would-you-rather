@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import reducer from "./reducers";
 import middleware from "./middleware";
-import App from './components/App';
+import App from "./components/App";
 
 const store = configureStore({
   reducer,
@@ -14,6 +14,7 @@ const store = configureStore({
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById("root")
+);
