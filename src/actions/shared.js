@@ -1,7 +1,7 @@
 import { fetchUsers } from "./users";
 import { fetchQuestions, saveQuestionAnswer } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
-import { getInitialData, saveAnswer } from "../utils";
+import { getInitialData, saveAnswer } from "../utils/API";
 import { setLoading } from "./loading";
 
 export const handleGetInitialData = () => {

@@ -43,8 +43,6 @@ class Nav extends Component {
   }
 }
 
-export default withRouter(
-  connect(({ authedUser }) => ({
+export default withRouter(connect(({ authedUser }) => ({
     loginLink: !!authedUser ? "Logout" : "Login"
-  }))(Nav)
-);
+}))(Nav));
