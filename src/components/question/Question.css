@@ -63,6 +63,7 @@
     padding: 20px;
     align-items: center;
     background-color: #92d1f42a;
+    min-width: 250px;
 }
 
 .question-view img {
@@ -100,10 +101,6 @@
     min-width: 250px;
 }
 
-.question-option .text {
-    font-size: 20px;
-}
-
 .question-option .stats {
     border: 1px solid rgb(96, 139, 168);
     border-radius: 5px;
@@ -112,12 +109,15 @@
 .question-option .votes {
     color: darkblue;
     margin: auto;
-    margin: auto;
 }
 
 .question-view .btn {
     margin-top:  10px;
     font-size: 16px;
+}
+
+.question-view .btn button{
+    margin-top:  10px;
 }
 
 .question-view .your-vote {
@@ -130,20 +130,17 @@
     height: 65px;
 }
 
-.question-view button:disabled,
-button[disabled]{
-    border: 1px solid #999999;
-    color: #666666;
-}
-
 .question-option-text {
     display: flex;
     flex-direction: row;
     border: 2px solid rgb(96, 139, 168);
     border-radius: 5px;
     background-color: #f0f1f3;
-    align-self: stretch;
-    font-size: 20px;
+    width: 100%;
+}
+
+.question-option-text div:first-child {
+  width: 90%;
 }
 
 .question-or {

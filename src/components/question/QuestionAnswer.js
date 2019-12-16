@@ -9,17 +9,16 @@ class QuestionAnswer extends Component {
     option: null
   };
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     const { id, authedUser, dispatch } = this.props;
     dispatch(handleSaveQuestionAnswer(authedUser, id, this.state.option));
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
-  handleChange = (event) => {
-    this.setState({option: event.target.value})
+  handleChange = event => {
+    this.setState({ option: event.target.value });
   };
-
 
   render() {
     const { users, questions, id } = this.props;
@@ -35,40 +34,40 @@ class QuestionAnswer extends Component {
         <div>
           <img alt={author} src={avatarURL} />
         </div>
-        <div>
-          Would you rather...
-        </div>
+        <div>Would you rather...</div>
         <div className="question-option-text">
+          <div>{optionOne.text}?</div>
           <div>
-            {optionOne.text}?
+            <label className="input">
+              <input
+                type="radio"
+                name="vote"
+                value="optionOne"
+                className="vote"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
-          <label className='input'>
-            <input
-              type="radio"
-              name="vote"
-              value="optionOne"
-              className="vote"
-              onChange={this.handleChange}
-            />
-          </label>
         </div>
-        <div className='question-or'>OR</div>
+        <div className="question-or">OR</div>
         <div className="question-option-text">
+          <div>{optionTwo.text}?</div>
           <div>
-            {optionTwo.text}?
+            <label className="input">
+              <input
+                type="radio"
+                name="vote"
+                value="optionTwo"
+                className="vote"
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
-          <label className='input'>
-            <input
-              type="radio"
-              name="vote"
-              value="optionTwo"
-              className="vote"
-              onChange={this.handleChange}
-            />
-          </label>
         </div>
-        <div className='btn'>
-          <button type="submit" disabled={!this.state.option}>Answer</button>
+        <div className="btn">
+          <button type="submit" disabled={!this.state.option}>
+            Answer
+          </button>
         </div>
       </form>
     );

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { handleGetInitialData } from "./../actions/shared";
 import { logoutUser } from "../actions/authedUser";
 import "./App.css";
@@ -14,16 +14,13 @@ import QuestionView from "./question/QuestionView";
 import QuestionAdd from "./question/QuestonAdd";
 import LeaderBoard from "./leader-board/LeaderBoard";
 import QuestionAnswer from "./question/QuestionAnswer";
+import NotFound from "./login/NotFound";
 
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(handleGetInitialData());
   }
-
-  logout = () => {
-    this.props.dispatch(logoutUser());
-  };
 
   render() {
     const { loading, authedUser } = this.props;
@@ -34,7 +31,7 @@ class App extends Component {
           <Nav />
           <main className="container-grid layout-section main">
             {loading ? null : !!authedUser ? (
-              <Fragment>
+              <Switch>
                 <Route exact path="/" component={Dashboard} />
                 <Route path="/login" component={Login} />
                 <Route path="/logout" component={Logout} />
@@ -42,7 +39,8 @@ class App extends Component {
                 <Route path="/answer/:id" component={QuestionAnswer} />
                 <Route path="/add" component={QuestionAdd} />
                 <Route path="/leader-board" component={LeaderBoard} />
-              </Fragment>
+                <Route path="*" component={NotFound}/>
+              </Switch>
             ) : (
               <Route path="/" component={Login} />
             )}

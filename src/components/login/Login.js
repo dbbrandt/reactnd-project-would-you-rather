@@ -18,7 +18,7 @@ class Login extends Component {
     event.preventDefault();
     const { users, dispatch, history, location } = this.props;
     const user = users[this.state.userId];
-    const destRoute = "/login" ? "/" : location.pathname;
+    const destRoute = location.pathname === "/login" ? "/" : location.pathname;
     dispatch(showLoading());
     setTimeout(() => {
       dispatch(handleAuthenticateUser(user.id));

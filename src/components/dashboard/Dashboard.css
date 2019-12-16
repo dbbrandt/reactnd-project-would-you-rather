@@ -2,11 +2,29 @@
     display: flex;
     flex-direction: column;
     background-color: white;
+    align-items: center;
 }
 
 .dashboard-lists h3 {
     padding: 10px;
 }
+
+.dashboard-lists .buttons {
+    text-align: center;
+}
+
+.dashboard-lists .buttons button {
+    margin: 5px;
+}
+
+.dashboard-lists .buttons .btn-active {
+    border: 3px inset;
+}
+
+.dashboard-lists .buttons .btn-available {
+    border: 3px outset;
+}
+
 
 @media screen and (min-width: 64rem) {
     .dashboard-list {

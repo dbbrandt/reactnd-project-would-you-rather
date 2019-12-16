@@ -9,9 +9,15 @@ body {
 
 button {
   font-size: 16px;
-  border-style: solid;
-  border-width: 3px;
+  border: 2px outset;
   background-color: #f0f1f3;
+
+}
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  color: #666666;
 }
 
 /* Layout Elements */

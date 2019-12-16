@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./Question.css";
 import QuestionOption from "./QuestionOption";
+import NotFound from "../login/NotFound";
 class QuestionView extends Component {
 
   votePct = (num, den) => {
@@ -36,7 +37,7 @@ class QuestionView extends Component {
   render() {
     const { authedUser, question, author, history } = this.props;
     if (!question) {
-      return <h3>Question not found.</h3>;
+      return <NotFound/>;
     }
     const { optionOne, optionTwo } = question;
     const { name, avatarURL } = author;
