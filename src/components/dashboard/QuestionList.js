@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import QuestionDetail from "./QuestionDetail";
-import './Question.css'
+import './Dashboard.css'
 
 class QuestionList extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import QuestionList from "../question/QuestionList";
+import QuestionList from "./QuestionList";
 import "./Dashboard.css";
 
 class Dashboard extends Component {

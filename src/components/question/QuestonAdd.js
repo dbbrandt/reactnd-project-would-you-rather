@@ -59,7 +59,7 @@ class QuestionAdd extends Component {
           value={optionTwoText}
           onChange={this.handleChange}
         />
-        <div>
+        <div className='btn'>
           <button type="submit" disabled={!this.state.optionOneText || !this.state.optionTwoText }>Save</button>
         </div>
       </form>

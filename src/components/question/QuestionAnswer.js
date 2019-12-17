@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import "./Question.css";
 import { handleSaveQuestionAnswer } from "../../actions/shared";
+import NotFound from "../login/NotFound";
 
 class QuestionAnswer extends Component {
   state = {
@@ -24,7 +25,7 @@ class QuestionAnswer extends Component {
     const { users, questions, id } = this.props;
     const question = questions[id];
     if (!question) {
-      return <h3>Question not found.</h3>;
+      return <NotFound/>;
     }
     const { author, optionOne, optionTwo } = question;
     const { name, avatarURL } = users[author];

@@ -59,7 +59,7 @@ class QuestionView extends Component {
           OR
         </div>
         <QuestionOption votes={voteTally.optionTwo}/>
-        <div className='btn'>
+        <div className='answer-btn'>
           <button onClick={() => history.push("/")}>Done</button>
         </div>
       </div>

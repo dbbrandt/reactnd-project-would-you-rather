@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import "./Question.css";
+import "./Dashboard.css";
 
 class QuestionDetail extends Component {
   render() {
