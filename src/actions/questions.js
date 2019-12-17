@@ -2,7 +2,6 @@ import { createAction } from "@reduxjs/toolkit";
 import { saveQuestion } from "../utils/API";
 
 export const fetchQuestions = createAction("FETCH_QUESTIONS");
-
 export const addQuestion = createAction("ADD_QUESTION");
 export const saveQuestionAnswer = createAction("SAVE_QUESTION_ANSWER");
 
