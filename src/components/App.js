@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { handleGetInitialData } from "./../actions/shared";
-import { logoutUser } from "../actions/authedUser";
 import "./App.css";
 import Nav from "./nav/Nav";
 import Heading from "./heading/Heading";
